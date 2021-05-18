@@ -42,12 +42,6 @@ app.get('/providers/:smartContractAddress', (req,res) => {
     }
 })
 
-app.get('/', (req,res) => {
-
-    res.send(`mode: ${process.env.NODE_ENV}, port: ${port}, delegationApiUrl: ${delegationApiUrl}, origin: ${origin}, corsoptions : ${JSON.stringify(corsOptions)}`)
-
-})
-
 app.listen(port, () => {
     console.log(`Server started on ${port}`)
   })
