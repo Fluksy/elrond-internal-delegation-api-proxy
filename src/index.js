@@ -45,13 +45,6 @@ app.get('/providers/:smartContractAddress', (req,res) => {
     }
 })
 
-app.get('/', (req,res) => {
-    res.send('test');
-    console.log(port);
-    console.log(delegationApiUrl);
-    console.log(domainUrl);
-})
-
 app.listen(port, () => {
     console.log(`Server started on ${port}`)
   })
