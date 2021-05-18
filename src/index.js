@@ -1,11 +1,18 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const fetch = require('node-fetch');
 const port = process.env.PORT || 8080;
-const delegationApiUrl = "https://internal-delegation-api.elrond.com";
+const delegationApiUrl = process.env.API_URL;
+const domainUrl = process.env.DOMAIN_URL;
+
+const corsOptions = {
+    origin: domainUrl,
+}
 
 // Middleware
 app.use(express.json())
+app.use(cors(corsOptions))
 
 app.get('/accounts/:walletAddress/delegations', (req,res) => {
     const walletAddress = req.params.walletAddress;
@@ -34,8 +41,6 @@ app.get('/providers/:smartContractAddress', (req,res) => {
         res.send('{error: "an error has occurred."}')
     }
 })
-
-// providers/${this.props.provider.contract}/
 
 app.listen(port, () => {
     console.log(`Server started on ${port}`)
