@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 const fetch = require('node-fetch');
 const port = process.env.PORT || 8080;
-const delegationApiUrl = process.env.API_URL || "https://internal-delegation-api.elrond.com";
+const delegationApiUrl = process.env.API_URL || "https://delegation-api.elrond.com";
 const origin = process.env.NODE_ENV === 'production' ? process.env.DOMAIN_URL : "*";
 
 const corsOptions = {
